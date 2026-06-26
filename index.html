@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>班級工具平台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <h1>📚 班級工具平台</h1>
+    <p>選擇你要使用的工具</p>
+
+    <div class="grid">
+
+      <div class="card" onclick="openTool('students')">
+        👥 <br>
+        班級名單
+      </div>
+
+      <div class="card" onclick="openTool('lottery')">
+        🎲 <br>
+        抽籤系統
+      </div>
+
+      <div class="card" onclick="openTool('grouping')">
+        👥 <br>
+        分組
+      </div>
+
+      <div class="card" onclick="openTool('seating')">
+        🪑 <br>
+        座位編排
+      </div>
+
+      <div class="card" onclick="openTool('cleaning')">
+        🧹 <br>
+        掃地分配
+      </div>
+
+      <div class="card" onclick="openTool('timer')">
+        ⏱ <br>
+        計時器
+      </div>
+
+      <div class="card" onclick="openTool('clock')">
+        🕒 <br>
+        時鐘
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openTool(toolName) {
+      window.location.href = `app.html?tool=${toolName}`;
+    }
+  </script>
+
+</body>
+</html>

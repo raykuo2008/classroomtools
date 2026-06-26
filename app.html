@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>班級工具平台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="menu">
+    <button onclick="location.href='index.html'">🏠 回首頁</button>
+  </div>
+
+  <div id="app"></div>
+
+  <script src="js/state.js"></script>
+  <script src="js/core.js"></script>
+
+  <script src="modules/students.js"></script>
+  <script src="modules/lottery.js"></script>
+  <script src="modules/grouping.js"></script>
+  <script src="modules/seating.js"></script>
+  <script src="modules/cleaning.js"></script>
+  <script src="modules/timer.js"></script>
+  <script src="modules/clock.js"></script>
+
+  <script>
+    // 🧠 初始化 state
+    State.init();
+
+    // 📦 解析工具名稱
+    const params = new URLSearchParams(window.location.search);
+    const tool = params.get("tool");
+
+    if (tool) {
+      loadTool(tool);
+    } else {
+      document.getElementById("app").innerHTML =
+        "<h2>請從首頁選擇工具</h2>";
+    }
+  </script>
+
+</body>
+</html>
