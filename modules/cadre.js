@@ -175,17 +175,32 @@ registerTool("cadre", {
       picker.style.top = "";
     }
 
+    function deleteCadreJob(jobIndex) {
+      jobs.splice(jobIndex, 1);
+
+      if (activeJobIndex === jobIndex) {
+        closePicker();
+      } else if (activeJobIndex !== null && activeJobIndex > jobIndex) {
+        activeJobIndex--;
+      }
+
+      saveJobs();
+      renderTable();
+    }
+
     function renderTable() {
       table.innerHTML = `
         <div class="cleaning-header">職位</div>
         <div class="cleaning-header">人數</div>
         <div class="cleaning-header">名字</div>
+        <div class="cleaning-header cleaning-header-action">刪除</div>
       `;
 
       jobs.forEach((job, index) => {
         const workInput = document.createElement("input");
         const countInput = document.createElement("input");
         const namesBox = document.createElement("div");
+        const deleteBtn = document.createElement("button");
 
         workInput.className = "cleaning-work";
         workInput.value = job.work;
@@ -202,6 +217,10 @@ registerTool("cadre", {
         namesBox.setAttribute("role", "button");
         namesBox.setAttribute("tabindex", "0");
         renderNamesBox(namesBox, job, index);
+
+        deleteBtn.className = "delete-job-btn";
+        deleteBtn.type = "button";
+        deleteBtn.innerText = "刪除";
 
         workInput.addEventListener("input", () => {
           jobs[index].work = workInput.value.trim();
@@ -224,9 +243,14 @@ registerTool("cadre", {
           }
         });
 
+        deleteBtn.addEventListener("click", () => {
+          deleteCadreJob(index);
+        });
+
         table.appendChild(workInput);
         table.appendChild(countInput);
         table.appendChild(namesBox);
+        table.appendChild(deleteBtn);
       });
     }
 

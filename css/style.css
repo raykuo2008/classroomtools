@@ -476,7 +476,7 @@ h3 {
 
 .cleaning-table {
   display: grid;
-  grid-template-columns: minmax(140px, 1fr) 100px minmax(240px, 2fr);
+  grid-template-columns: minmax(140px, 1fr) 100px minmax(240px, 2fr) 88px;
   gap: 8px;
   align-items: stretch;
   margin-top: 20px;
@@ -488,6 +488,10 @@ h3 {
   background: #172033;
   color: white;
   font-weight: 800;
+}
+
+.cleaning-header-action {
+  text-align: center;
 }
 
 .cleaning-work,
@@ -526,6 +530,15 @@ h3 {
   background: var(--green);
   font-size: 30px;
   line-height: 1;
+}
+
+.delete-job-btn {
+  min-height: 46px;
+  padding: 8px 10px;
+  background: white;
+  color: var(--rose);
+  border: 1px solid #fecdd3;
+  box-shadow: none;
 }
 
 .cleaning-picker {
@@ -589,7 +602,7 @@ h3 {
   }
 
   .cleaning-table {
-    grid-template-columns: minmax(90px, 1fr) 74px minmax(150px, 1.4fr);
+    grid-template-columns: minmax(90px, 1fr) 74px minmax(150px, 1.4fr) 70px;
     font-size: 14px;
   }
 
