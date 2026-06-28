@@ -7,7 +7,8 @@ const State = {
     seatingLayout: [],
     lotteryHistory: [],
     timerLogs: [],
-    cleaningJobs: []
+    cleaningJobs: [],
+    cadreJobs: []
   },
 
   data: {},

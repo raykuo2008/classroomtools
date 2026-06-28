@@ -204,7 +204,8 @@ h3 {
 }
 
 .seating-card,
-.cleaning-card {
+.cleaning-card,
+.cadre-card {
   max-width: 980px;
 }
 
@@ -320,6 +321,34 @@ h3 {
   margin: 0;
   padding-left: 22px;
   color: var(--muted);
+}
+
+.lottery-history-header {
+  max-width: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 auto 10px;
+}
+
+.lottery-history-header h3 {
+  margin: 0;
+}
+
+.lottery-history-header button {
+  background: white;
+  color: var(--rose);
+  border-color: #fecdd3;
+  box-shadow: none;
+}
+
+.lottery-empty-history {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--muted);
+  background: #fafbfc;
 }
 
 .groups-board {

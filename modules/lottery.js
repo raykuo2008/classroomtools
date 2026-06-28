@@ -15,6 +15,11 @@ registerTool("lottery", {
 
         <div id="lottery-box">尚未開始</div>
 
+        <div class="lottery-history-header">
+          <h3>📜 抽籤歷史</h3>
+          <button id="clear-history-btn" type="button">清除歷史紀錄</button>
+        </div>
+
         <div id="history"></div>
       </div>
     `;
@@ -22,6 +27,7 @@ registerTool("lottery", {
     const drawCountInput = container.querySelector("#draw-count");
     const box = container.querySelector("#lottery-box");
     const startBtn = container.querySelector("#start-btn");
+    const clearHistoryBtn = container.querySelector("#clear-history-btn");
     const historyDiv = container.querySelector("#history");
 
     let interval = null;
@@ -40,12 +46,21 @@ registerTool("lottery", {
     function renderHistory() {
       const history = State.get("lotteryHistory");
 
+      if (history.length === 0) {
+        historyDiv.innerHTML = `<div class="lottery-empty-history">目前沒有抽籤紀錄</div>`;
+        return;
+      }
+
       historyDiv.innerHTML = `
-        <h3>📜 抽籤歷史</h3>
         <ul>
           ${history.map(item => `<li>${Array.isArray(item) ? item.join("、") : item}</li>`).join("")}
         </ul>
       `;
+    }
+
+    function clearHistory() {
+      State.set("lotteryHistory", []);
+      renderHistory();
     }
 
     function startLottery() {
@@ -90,6 +105,7 @@ registerTool("lottery", {
     }
 
     startBtn.addEventListener("click", startLottery);
+    clearHistoryBtn.addEventListener("click", clearHistory);
 
     renderHistory();
   }
